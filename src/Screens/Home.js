@@ -6,7 +6,7 @@ import HomeSearch from "../Components/HomeSearch";
 import HomeBanner from "../Components/HomeBanner";
 import ProductsTile from "../Components/ProductsTile";
 import ProductsCarousel from "../Components/ProductsCarousel";
-import { fruits, vegetables } from "../Utils/Date";
+import { fruits } from "../Utils/Date";
 
 const Home = () => {
   return (
@@ -18,7 +18,7 @@ const Home = () => {
       <ProductsTile title="TRANH SƠN DẦU"/>
       <ProductsCarousel data={fruits}/>
       <ProductsTile title="TRANH PHONG CẢNH"/>
-      <ProductsCarousel data={vegetables}/> 
+      <ProductsCarousel data={fruits}/> 
       
     </SafeAreaView>
     </ScrollView>

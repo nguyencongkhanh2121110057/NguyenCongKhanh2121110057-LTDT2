@@ -6,7 +6,9 @@ import Splash from "./src/Screens/Splash";
 import Login from "./src/Screens/Login";
 import Signup from "./src/Screens/Signup";
 import Home from "./src/Screens/Home";
-import Details from "./src/Screens/Details";
+// import Details from "./src/Screens/Details";
+// import ProductDetails from '../Screens/ProductDetails';
+
 import Cart from "./src/Screens/Cart";
 import { Provider } from "react-redux";
 import { Store } from "./Redux/Store";

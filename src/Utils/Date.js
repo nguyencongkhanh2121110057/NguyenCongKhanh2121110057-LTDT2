@@ -1,5 +1,5 @@
 export const fruits = [
-  { id:1,
+  { 
     name: "tranh nhà làm",
     pieces: "1111",
     price: 100.00,
@@ -25,8 +25,8 @@ export const fruits = [
     price: 4.999,
     img: "https://tranhhoanggia.com/wp-content/uploads/2020/09/e8e96ab52bded4808dcf52.jpg",
   },
-];
-export const vegetables = [
+
+
   {
     name: "tranh cổ",
     pieces: "10",

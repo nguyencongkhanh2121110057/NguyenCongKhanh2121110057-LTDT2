@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { responsiveHeight } from 'react-native-responsive-dimensions';
 
@@ -10,11 +10,19 @@ const HomeBanner = () => {
     require('../assets/banner3.png'),
   ];
 
+  const { width: screenWidth } = Dimensions.get('window');
+
+  const calculateImageHeight = () => {
+    // Assume a fixed aspect ratio for the images, adjust as needed
+    const aspectRatio = 16 / 9; // You can change this to match your image aspect ratio
+    return screenWidth / aspectRatio;
+  };
+
   const _renderItem = ({ item, index }) => {
     return (
       <View style={styles.slide}>
         <Image
-          style={styles.image}
+          style={[styles.image, { height: calculateImageHeight() }]}
           source={item}
         />
       </View>
@@ -22,38 +30,40 @@ const HomeBanner = () => {
   };
 
   return (
-    <Carousel
-      data={images}
-      renderItem={_renderItem}
-      sliderWidth={345}
-      itemWidth={345}
-      loop={true}
-      autoplay={true}
-      autoplayInterval={3000}
-      containerCustomStyle={{ marginTop: 15 }}
-      contentContainerCustomStyle={styles.sliderContentContainer}
-    />
+    <View style={styles.container}>
+      <Carousel
+        data={images}
+        renderItem={_renderItem}
+        sliderWidth={screenWidth}
+        itemWidth={screenWidth}
+        loop={true}
+        autoplay={true}
+        autoplayInterval={3000}
+        containerCustomStyle={{ marginTop: 15 }}
+        contentContainerCustomStyle={styles.sliderContentContainer}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   slide: {
-    paddingLeft:40,
-    width: 345,
-    height: responsiveHeight(15),
-    borderRadius: 15,
+    width: Dimensions.get('window').width,
     alignItems: 'center',
     justifyContent: 'center',
   },
   image: {
     width: '100%',
-    height: '100%',
     borderRadius: 15,
   },
   sliderContentContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
 });
 
